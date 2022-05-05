@@ -17,6 +17,7 @@ public class Game {
         nbCase = 64;
     }
     public void startGame(){
+        this.position = 1;
         initializeTheGame();
         changeInfos();
         createTheHero();
@@ -24,11 +25,13 @@ public class Game {
     }
     public void restartGame(){
         String playAgainChoice = menu.askIfPlayAgain();
+        while(true){
             if(playAgainChoice.equals("Oui")){
                 startGame();
             }else if(playAgainChoice.equals("exit")) {
                 menu.leaveGame(playAgainChoice);
-            }else{
+            }
+          }
         }
     }
     public void initializeTheGame() {
