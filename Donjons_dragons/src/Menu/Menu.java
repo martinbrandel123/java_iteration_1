@@ -2,14 +2,15 @@ package Menu;
 import java.util.Scanner;
 import Hero.Guerrier;
 import Hero.Magicien;
+import jdk.swing.interop.SwingInterOpUtils;
 
 
 public class Menu {
-    private Scanner input = new Scanner(System.in);
-
+    private Scanner input;
+    public Menu(){
+        this.input = new Scanner(System.in);
+    }
     public String chooseTheHero() {
-        System.out.println("Bienvenue ...");
-        System.out.println("Pour quitter le jeu entrez 'exit'");
         System.out.println("Pour choisir un Hero entrez : Guerrier ou Magicien ");
         String hero = this.input.nextLine();
         while(!hero.equals("Guerrier") || !hero.equals("Magicien")){
@@ -25,7 +26,7 @@ public class Menu {
         return hero;
     }
     public String choosePseudo (){
-        System.out.println("=> Vous devez choisir un Pseudo");
+        displayH1("Vous devez choisir un Pseudo");
         String pseudo = this.input.nextLine();
         leaveGame(pseudo);
         return pseudo;
@@ -42,32 +43,84 @@ public class Menu {
     public String chooseInfoToChange() {
         System.out.println("Pour changer les infos ?");
         System.out.println("=> entrez Classe / Pseudo ?");
+        System.out.println("Pour recommencer ?");
+        System.out.println("=> entrez Restart");
         String haveTochange = this.input.nextLine();
         return haveTochange;
     }
-
-
-
-
-
-
-
     public void displayGuerrierInfo (Guerrier hero){
-        System.out.println(hero);
-    }
-    public void displayMagicienInfo(Magicien hero) {
-        System.out.println("Votre Hero");
+        displayH1("Félicitation Votre Hero à été crée !");
         System.out.println("=> " + hero);
     }
+    public void displayMagicienInfo(Magicien hero) {
+        displayH1("Félicitation Votre Hero à été crée !");
+       // System.out.println("=> " + hero);
+    }
+    public int askForMenuChoice(){
+        displayH1("AFFICHER LE MENU");
+        System.out.println("1) COMMENCER LA PARTIE !");
+        System.out.println("2) Afficher les caractèristiques du Héro");
+        System.out.println("3) Modifier les caractèristiques du Héro");
+
+        int menuChoice = this.input.nextInt();
+        this.input.nextLine();
+        return menuChoice;
+    }
+    public Boolean askForEnter() {
+        displayParagraph("Appuyer sur Entrer pour jettez les dés");
+        if(this.input.hasNextLine()){
+            this.input.nextLine();
+            this.input.hasNextLine();
+            return this.input.hasNextLine();
+        }
+        return false;
+    }
+    public String askIfPlayAgain(){
+        displayH1("SOUHAITEZ VOUS REJOUER ?");
+        System.out.println("Oui !");
+        System.out.println("exit :(");
+        String playAgainChoice = this.input.nextLine();
+        return playAgainChoice;
+    }
+
+    public void displayPosition(int position){
+        System.out.println("votre position => " + position);
+    }
 
 
+
+
+
+
+
+    public void displayH1(String text){
+        System.out.println("-------------------");
+        System.out.println(text);
+        System.out.println("-------------------");
+    }
+    public void displayParagraph(String text){
+        System.out.println("=> " + text);
+    }
+    public void displayEndGame(){
+        System.out.println("██████╗ ██╗   ██╗███╗   ██╗ ██████╗ ███████╗ ██████╗ ███╗   ██╗███████╗       ██╗       ██████╗ ██████╗  █████╗  ██████╗  ██████╗ ███╗   ██╗███████╗\n" +
+                "██╔══██╗██║   ██║████╗  ██║██╔════╝ ██╔════╝██╔═══██╗████╗  ██║██╔════╝       ██║       ██╔══██╗██╔══██╗██╔══██╗██╔════╝ ██╔═══██╗████╗  ██║██╔════╝\n" +
+                "██║  ██║██║   ██║██╔██╗ ██║██║  ███╗█████╗  ██║   ██║██╔██╗ ██║███████╗    ████████╗    ██║  ██║██████╔╝███████║██║  ███╗██║   ██║██╔██╗ ██║███████╗\n" +
+                "██║  ██║██║   ██║██║╚██╗██║██║   ██║██╔══╝  ██║   ██║██║╚██╗██║╚════██║    ██╔═██╔═╝    ██║  ██║██╔══██╗██╔══██║██║   ██║██║   ██║██║╚██╗██║╚════██║\n" +
+                "██████╔╝╚██████╔╝██║ ╚████║╚██████╔╝███████╗╚██████╔╝██║ ╚████║███████║    ██████║      ██████╔╝██║  ██║██║  ██║╚██████╔╝╚██████╔╝██║ ╚████║███████║\n" +
+                "╚═════╝  ╚═════╝ ╚═╝  ╚═══╝ ╚═════╝ ╚══════╝ ╚═════╝ ╚═╝  ╚═══╝╚══════╝    ╚═════╝      ╚═════╝ ╚═╝  ╚═╝╚═╝  ╚═╝ ╚═════╝  ╚═════╝ ╚═╝  ╚═══╝╚══════╝");
+    }
     public void leaveGame(String inputValue){
         if(inputValue.equals("exit")){
-            System.out.println("Sortie du jeu ...");
+            displayH1("Sortie du jeu ...");;
+            System.out.println("Mais allez la reviens STP STP STP STP");
             System.exit(0);
         }
     }
 
+
+
 }
+
+
 
 
