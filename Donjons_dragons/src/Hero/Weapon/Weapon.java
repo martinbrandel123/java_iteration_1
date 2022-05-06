@@ -10,15 +10,16 @@ public class Weapon {
         this.name = pName;
         this.attack = pAttack;
     }
-
-
-
+    public Weapon() {
+        this.name = "arme de merde";
+        this.attack = 0;
+    }
 
     public int getAttack(){
         return this.attack;
     }
 
     public String toString(){
-        return this.name + "  " + this.attack;
+        return " arme type : " + this.name + " | valeur d'attaque : " + this.attack;
     }
 }

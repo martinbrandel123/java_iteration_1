@@ -2,6 +2,7 @@ package Menu;
 import java.util.Scanner;
 import Hero.Guerrier;
 import Hero.Magicien;
+import Hero.Personnage;
 import jdk.swing.interop.SwingInterOpUtils;
 
 
@@ -11,17 +12,16 @@ public class Menu {
         this.input = new Scanner(System.in);
     }
     public String chooseTheHero() {
+        displayH1("BIENVENUE SUR DONJON & DRAGON !");
         System.out.println("Pour choisir un Hero entrez : Guerrier ou Magicien ");
         String hero = this.input.nextLine();
-        while(!hero.equals("Guerrier") || !hero.equals("Magicien")){
-            leaveGame(hero);
-            if(hero.equals("Guerrier") || hero.equals("Magicien")){
-                System.out.println("Vous avez Choisie : " + hero);
-                break;
-            }else {
-                System.out.println("Il faut choisir !");
-                hero = this.input.nextLine();
-            }
+        while(!(hero.equals("Guerrier") || hero.equals("Magicien"))){
+            leaveGame(hero); // si hero = exit donc quitté le jeu
+            displayParagraph("Il faut choisir entre Guerrier ou Magicien ?");
+            hero = this.input.nextLine();
+        }
+        if(hero.equals("Guerrier") || hero.equals("Magicien")){
+            System.out.println("Vous avez Choisie : " + hero);
         }
         return hero;
     }
@@ -33,8 +33,12 @@ public class Menu {
     }
     public Boolean isInfoToChange(){
         System.out.println("Souhaitez vous changer vos infos ?");
-        System.out.println("=> Entrez Oui/Non");
+        displayParagraph("Entrez Oui/Non");
         String haveTochange = this.input.nextLine();
+       while(!(haveTochange.equals("Oui") || haveTochange.equals("Non"))){
+           displayParagraph("Entrez Oui/Non");
+           haveTochange = this.input.nextLine();
+       };
         if(haveTochange.equals("Oui")){
             return true;
         }
@@ -48,13 +52,17 @@ public class Menu {
         String haveTochange = this.input.nextLine();
         return haveTochange;
     }
-    public void displayGuerrierInfo (Guerrier hero){
+//    public void displayGuerrierInfo (Guerrier hero){
+//        displayH1("Félicitation Votre Hero à été crée !");
+//        System.out.println("=> " + hero);
+//    }
+//    public void displayMagicienInfo(Magicien hero) {
+//        displayH1("Félicitation Votre Hero à été crée !");
+//        System.out.println("=> " + hero);
+//    }
+    public void displayPersonnageInfo (Personnage personnage){
         displayH1("Félicitation Votre Hero à été crée !");
-        System.out.println("=> " + hero);
-    }
-    public void displayMagicienInfo(Magicien hero) {
-        displayH1("Félicitation Votre Hero à été crée !");
-       // System.out.println("=> " + hero);
+        System.out.println("=> " + personnage.toString());
     }
     public int askForMenuChoice(){
         displayH1("AFFICHER LE MENU");
@@ -76,23 +84,15 @@ public class Menu {
         return false;
     }
     public String askIfPlayAgain(){
-        displayH1("SOUHAITEZ VOUS REJOUER ?");
+        displayH1("SOUHAITEZ VOUS REJOUER UNE PARTIE ?");
         System.out.println("Oui !");
-        System.out.println("exit :(");
+        System.out.println("Non :(");
         String playAgainChoice = this.input.nextLine();
         return playAgainChoice;
     }
-
     public void displayPosition(int position){
         System.out.println("votre position => " + position);
     }
-
-
-
-
-
-
-
     public void displayH1(String text){
         System.out.println("-------------------");
         System.out.println(text);
