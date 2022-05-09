@@ -1,18 +1,20 @@
-package Case;
+package Case.Sort;
 
-public class Spell extends Case{
+import Case.Case;
+
+public class Eclairs extends Case {
     // Attributs
     private String name;
     private int attack;
 
     // Constructeur
 
-    public Spell(String pName,int pAttack) {
+    public Eclairs(String pName, int pAttack) {
         this.name = pName;
         this.attack = pAttack;
     }
-    public Spell() {
-        this.name = "sort de merde";
+    public Eclairs() {
+        this.name = "ECLAIRS AGROU AGROU";
         this.attack = 0;
     }
     public String toString(){

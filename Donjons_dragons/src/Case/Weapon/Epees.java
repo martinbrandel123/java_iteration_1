@@ -1,17 +1,19 @@
-package Case;
+package Case.Weapon;
 
-public class Weapon extends Case{
+import Case.Case;
+
+public class Epees extends Case {
     // Attributs
     private String name;
     private int attack;
 
     //Constructeur
-    public Weapon(String pName,int pAttack){
+    public Epees(String pName, int pAttack){
         this.name = pName;
         this.attack = pAttack;
     }
-    public Weapon() {
-        this.name = "arme de merde";
+    public Epees() {
+        this.name = "Epee de merde";
         this.attack = 0;
     }
 

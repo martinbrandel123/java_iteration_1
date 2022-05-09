@@ -1,14 +1,15 @@
 package Hero;
-import Case.Spell;
+import Case.Sort.Eclairs;
 
 public class Magicien extends Personnage{
     // Attributs
-    private Spell spell;
-    //Constructeur
+    private Eclairs spell;
+
+//Constructeur
 
     public Magicien(String pClasse, String pName, int pLife, int pAttack) {
         super(pClasse, pName, pLife, pAttack);
-        this.spell = new Spell();
+        this.spell = new Eclairs();
     }
     public Magicien(String pClasse, String pName) {
         super(pClasse, pName);

@@ -21,12 +21,27 @@ public abstract class Personnage {
     }
 
     // getter : setter
-    public String getClasse(){
-        return this.classe;
+    public String getClasse(){return this.classe;}
+    public String getName(){return this.name;}
+    public int getLife(){return this.life;}
+    public int getAttack(){return this.attack;}
+
+
+    public void setLife(int lifeValue){
+        if(this.life <= 0 || this.life >= 10){
+            this.life = 5;
+        }else {
+            this.life = lifeValue;
+        }
     }
-    public String getName(){
-        return this.name;
+    public void setAttack(int attackValue){
+        if(this.attack <= 0 || this.attack >= 10){
+            this.attack = 5;
+        }else {
+            this.life = attackValue;
+        }
     }
+
     public String toString() {
         return this.classe + " : " + this.name + " |";
     }
