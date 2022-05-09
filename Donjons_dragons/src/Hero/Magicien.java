@@ -1,5 +1,5 @@
 package Hero;
-import Hero.Weapon.Spell;
+import Case.Spell;
 
 public class Magicien extends Personnage{
     // Attributs

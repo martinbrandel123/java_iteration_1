@@ -1,6 +1,6 @@
-package Hero.Weapon;
+package Case;
 
-public class Weapon {
+public class Weapon extends Case{
     // Attributs
     private String name;
     private int attack;

@@ -26,7 +26,7 @@ public class Menu {
         return hero;
     }
     public String choosePseudo (){
-        displayH1("Vous devez choisir un Pseudo");
+        displayH2("Vous devez choisir un Pseudo");
         String pseudo = this.input.nextLine();
         leaveGame(pseudo);
         return pseudo;
@@ -65,7 +65,7 @@ public class Menu {
         System.out.println("=> " + personnage.toString());
     }
     public int askForMenuChoice(){
-        displayH1("AFFICHER LE MENU");
+        displayH2("MENU");
         System.out.println("1) COMMENCER LA PARTIE !");
         System.out.println("2) Afficher les caractèristiques du Héro");
         System.out.println("3) Modifier les caractèristiques du Héro");
@@ -98,11 +98,15 @@ public class Menu {
         System.out.println(text);
         System.out.println("-------------------");
     }
+    public void displayH2(String text){
+        System.out.println("-------" + text + "-------");
+    }
     public void displayParagraph(String text){
         System.out.println("=> " + text);
     }
     public void displayEndGame(){
-        System.out.println("██████╗ ██╗   ██╗███╗   ██╗ ██████╗ ███████╗ ██████╗ ███╗   ██╗███████╗       ██╗       ██████╗ ██████╗  █████╗  ██████╗  ██████╗ ███╗   ██╗███████╗\n" +
+        System.out.println(
+                "██████╗ ██╗   ██╗███╗   ██╗ ██████╗ ███████╗ ██████╗ ███╗   ██╗███████╗       ██╗       ██████╗ ██████╗  █████╗  ██████╗  ██████╗ ███╗   ██╗███████╗\n" +
                 "██╔══██╗██║   ██║████╗  ██║██╔════╝ ██╔════╝██╔═══██╗████╗  ██║██╔════╝       ██║       ██╔══██╗██╔══██╗██╔══██╗██╔════╝ ██╔═══██╗████╗  ██║██╔════╝\n" +
                 "██║  ██║██║   ██║██╔██╗ ██║██║  ███╗█████╗  ██║   ██║██╔██╗ ██║███████╗    ████████╗    ██║  ██║██████╔╝███████║██║  ███╗██║   ██║██╔██╗ ██║███████╗\n" +
                 "██║  ██║██║   ██║██║╚██╗██║██║   ██║██╔══╝  ██║   ██║██║╚██╗██║╚════██║    ██╔═██╔═╝    ██║  ██║██╔══██╗██╔══██║██║   ██║██║   ██║██║╚██╗██║╚════██║\n" +

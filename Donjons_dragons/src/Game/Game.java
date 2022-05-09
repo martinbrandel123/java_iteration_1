@@ -1,7 +1,5 @@
 package Game;
 import Hero.Personnage;
-import Hero.Weapon.Spell;
-import Hero.Weapon.Weapon;
 import Menu.Menu;
 import Hero.Guerrier;
 import Hero.Magicien;
@@ -11,6 +9,7 @@ public class Game {
     private String classe;
     private String pseudo;
     private int position ;
+    private Personnage personnage;
 
     private int nbCase ;
 
@@ -22,7 +21,6 @@ public class Game {
     public void startGame(){
         this.position = 1;
         initializeTheGame();
-        changeInfos();
         createTheHero();
         createMainMenu();
     }
@@ -48,15 +46,22 @@ public class Game {
             case 1:
                 playGame();
                 break;
+            case 2:
+                System.out.println(personnage.toString());
+                createMainMenu();
+                break;
+            case 3:
+                changeInfos();
+                createMainMenu();
+                break;
         }
     }
     public void createTheHero(){
         if(classe.equalsIgnoreCase("Guerrier")){
-            Weapon arme = new Weapon();
-            Personnage personnage = new Guerrier(classe, pseudo, 10, 10, arme);
+            this.personnage = new Guerrier(classe, pseudo, 10, 10);
             this.menu.displayPersonnageInfo(personnage);
         }else if (classe.equalsIgnoreCase("Magicien")){
-            Personnage personnage = new Magicien(classe, pseudo, 10, 10);
+            this.personnage = new Magicien(classe, pseudo, 10, 10);
             this.menu.displayPersonnageInfo(personnage);
         }
     }
@@ -66,14 +71,18 @@ public class Game {
         System.out.println(haveToChangeInfos);
         while(haveToChangeInfos){
             if(haveToChangeInfos){
-                String InfoToChange = menu.chooseInfoToChange();
-                if(InfoToChange.equals("Classe")){
-                    this.classe = menu.chooseTheHero();
-                }else if(InfoToChange.equals("Pseudo")){
-                    this.pseudo = menu.choosePseudo();
-                }else if(InfoToChange.equals("Restart")){
-                    this.classe = menu.chooseTheHero();
-                    this.pseudo = menu.choosePseudo();
+                String infoToChange = menu.chooseInfoToChange();
+                switch (infoToChange){
+                    case "Classe":
+                        this.classe = menu.chooseTheHero();
+                        break;
+                    case "Pseudo":
+                        this.pseudo = menu.choosePseudo();
+                        break;
+                    case "Restart":
+                        this.classe = menu.chooseTheHero();
+                        this.pseudo = menu.choosePseudo();
+                        break;
                 }
             }
             haveToChangeInfos = menu.isInfoToChange();
@@ -96,5 +105,12 @@ public class Game {
     public boolean isGameInProcesse(){
         boolean res = this.position < nbCase;
         return res;
+    }
+
+
+
+
+    public void test (){
+        System.out.println("test");
     }
 }

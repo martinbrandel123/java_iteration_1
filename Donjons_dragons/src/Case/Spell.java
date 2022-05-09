@@ -1,6 +1,6 @@
-package Hero.Weapon;
+package Case;
 
-public class Spell {
+public class Spell extends Case{
     // Attributs
     private String name;
     private int attack;
