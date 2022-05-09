@@ -16,6 +16,7 @@ public class Epees extends Case {
         this.name = "Epee de merde";
         this.attack = 0;
     }
+    //methode
 
     public int getAttack(){
         return this.attack;

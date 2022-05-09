@@ -16,6 +16,9 @@ public class Guerrier extends Personnage{
 
 //Constructeur
 
+
+
+
     // Accesseurs / Mutateurs
     public void setWeapon (){
 

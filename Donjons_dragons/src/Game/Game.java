@@ -22,6 +22,7 @@ import Case.Sort.Bouledefeus;
 
 import Case.Potion.Potionstandards;
 import Case.Potion.Potionmagique;
+import org.w3c.dom.ls.LSOutput;
 
 
 import java.util.ArrayList;
@@ -35,6 +36,7 @@ public class Game {
     private Personnage personnage;
     private int nbCase ;
     private List<Case> GamePlateau;
+
 
     private Case caseVide;
     private Case dragon;
@@ -72,10 +74,6 @@ public class Game {
     }
 
     public void createGamePlateau(){
-        GamePlateau.add(caseVide);
-        GamePlateau.add(dragon);
-        GamePlateau.add(gobelin);
-        GamePlateau.add(sorcier);
         GamePlateau.add(massue);
         GamePlateau.add(epee);
         GamePlateau.add(eclair);
@@ -157,6 +155,9 @@ public class Game {
                 dice = (int) Math.ceil(Math.random() * 1);
                 menu.displayPosition(this.position);
                 System.out.println(this.GamePlateau.get(position));
+                if(this.GamePlateau.get(position) instanceof Massues){
+        /CREVOIDJBVÖDRI
+                }
                 this.position += dice;
             }
         }
@@ -169,5 +170,9 @@ public class Game {
         return res;
     }
 
-
+    public void check(){
+        System.out.println("22222222222222222222");
+        epee.interaction(personnage);
+        System.out.println("22222222222222222222");
+    }
 }
