@@ -1,5 +1,7 @@
 package Game;
 import Case.Case;
+import Case.Weapon.Weapon;
+import Case.Sort.Sort;
 import Hero.Personnage;
 import Menu.Menu;
 
@@ -27,6 +29,7 @@ import org.w3c.dom.ls.LSOutput;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.WeakHashMap;
 
 public class Game {
     private Menu menu;
@@ -64,7 +67,7 @@ public class Game {
         this.potionStandar = new Potionstandards();
         this.potionMagique = new Potionmagique();
         this.position = 1;
-        this.nbCase = 10;
+        this.nbCase = 64;
     }
     public void startGame(){
         this.position = 0;
@@ -76,10 +79,12 @@ public class Game {
     public void createGamePlateau(){
         GamePlateau.add(massue);
         GamePlateau.add(epee);
+        GamePlateau.add(potionMagique);
         GamePlateau.add(eclair);
         GamePlateau.add(bouleDeFeu);
         GamePlateau.add(potionStandar);
-        GamePlateau.add(potionMagique);
+        GamePlateau.add(massue);
+
     }
 
     public void restartGame(){
@@ -117,13 +122,14 @@ public class Game {
     }
     public void createTheHero(){
         if(classe.equalsIgnoreCase("Guerrier")){
-            this.personnage = new Guerrier(classe, pseudo, 10, 10);
+            this.personnage = new Guerrier(classe, pseudo);
             this.menu.displayPersonnageInfo(personnage);
         }else if (classe.equalsIgnoreCase("Magicien")){
             this.personnage = new Magicien(classe, pseudo, 10, 10);
             this.menu.displayPersonnageInfo(personnage);
         }
     }
+
 
     public void changeInfos(){
         Boolean haveToChangeInfos = menu.isInfoToChange();
@@ -154,10 +160,19 @@ public class Game {
             if(isEnter){
                 dice = (int) Math.ceil(Math.random() * 1);
                 menu.displayPosition(this.position);
-                System.out.println(this.GamePlateau.get(position));
-                if(this.GamePlateau.get(position) instanceof Massues){
-        /CREVOIDJBVÖDRI
+
+                if(this.GamePlateau.get(position) instanceof Weapon && personnage instanceof Guerrier){
+                    this.personnage.setWeapon((Weapon) this.GamePlateau.get(position));
+                }else if (this.GamePlateau.get(position) instanceof Sort && personnage instanceof Magicien){
+                    this.personnage.setSort((Sort) this.GamePlateau.get(position));
+                }else if(this.GamePlateau.get(position) instanceof Potionmagique){
+                    //this.personnage.getLife();
+                    this.personnage.setLife(20);
+                    //.personnage.getLife();
                 }
+                //System.out.println("----------------");
+                System.out.println(this.personnage);
+               // System.out.println("----------------");
                 this.position += dice;
             }
         }

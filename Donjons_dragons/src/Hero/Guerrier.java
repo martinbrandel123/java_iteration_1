@@ -1,31 +1,29 @@
 package Hero;
-import Case.Weapon.Massues;
+import Case.Case;
+import Case.Equipement;
+import Case.Weapon.Weapon;
 
 public class Guerrier extends Personnage{
     // Attributs
-    private Massues weapon;
-
-    public Guerrier(String pClasse, String pName, int pLife, int pAttack) {
-        super(pClasse, pName,10, 10);
-        this.weapon = new Massues();
-    }
+    private Case weapon;
+    //Constructeur
     public Guerrier(String pClasse, String pName) {
-        super(pClasse, pName);
+        super(pClasse, pName,10, 10);
+        this.weapon = new Weapon();
     }
-
-
-//Constructeur
 
 
 
 
     // Accesseurs / Mutateurs
-    public void setWeapon (){
-
+    @Override
+    public void setWeapon(Weapon weapon) {
+        this.weapon = weapon;
     }
 
     //to string
+    @Override
     public String toString() {
-        return super.toString() + "\n=>" +  this.weapon;
+        return super.toString() + this.weapon;
     }
 }

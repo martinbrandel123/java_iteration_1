@@ -1,27 +1,24 @@
 package Case.Weapon;
 
-import Case.Case;
-
-public class Massues extends Case {
+public class Massues extends Weapon {
     // Attributs
-    private String name;
-    private int attack;
+
 
     //Constructeur
-    public Massues(String pName, int pAttack){
-        this.name = pName;
-        this.attack = pAttack;
-    }
     public Massues() {
-        this.name = "Massue de merde";
-        this.attack = 0;
+        super("Massue de merde", 4);
     }
 
-    public int getAttack(){
-        return this.attack;
-    }
 
-    public String toString(){
-        return " arme type : " + this.name + " | valeur d'attaque : " + this.attack;
-    }
+    //public int getAttack(){
+    //    return this.attack;
+    //}
+
+
+
+
+//    @Override
+//    public String toString(){
+//        return "MASUSUSUSUSUS" ;
+//    }
 }

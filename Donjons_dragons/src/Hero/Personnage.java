@@ -1,11 +1,16 @@
 package Hero;
 
+import Case.Weapon.Weapon;
+import Case.Sort.Sort;
+
 public abstract class Personnage {
     private String classe;
     private String name;
     private int life;
     private int attack;
 
+    private Weapon weapon;
+    private Sort sort;
 
     public Personnage(String pClasse,String pName, int pLife, int pAttack){
         this.classe = pClasse;
@@ -18,6 +23,8 @@ public abstract class Personnage {
         this.name = pName;
         this.life = 5;
         this.attack = 5;
+        this.weapon = new Weapon();
+        this.sort = new Sort();
     }
 
     // getter : setter
@@ -27,22 +34,17 @@ public abstract class Personnage {
     public int getAttack(){return this.attack;}
 
 
-    public void setLife(int lifeValue){
-        if(this.life <= 0 || this.life >= 10){
-            this.life = 5;
-        }else {
-            this.life = lifeValue;
-        }
+    public void setWeapon(Weapon weapon) {
+        this.weapon = weapon;
     }
-    public void setAttack(int attackValue){
-        if(this.attack <= 0 || this.attack >= 10){
-            this.attack = 5;
-        }else {
-            this.life = attackValue;
-        }
+    public void setSort(Sort sort){
+        this.sort = sort;
+    };
+
+    public void setLife(int life) {
+        this.life = life;
     }
 
-    public String toString() {
-        return this.classe + " : " + this.name + " |";
+    public String toString() {return this.classe + " : " + this.name + "\n";
     }
 }

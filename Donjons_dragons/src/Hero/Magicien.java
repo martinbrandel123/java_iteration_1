@@ -1,18 +1,25 @@
 package Hero;
 import Case.Sort.Eclairs;
+import Case.Sort.Sort;
+import Case.Weapon.Weapon;
 
 public class Magicien extends Personnage{
     // Attributs
-    private Eclairs spell;
+    private Sort sort;
 
 //Constructeur
 
     public Magicien(String pClasse, String pName, int pLife, int pAttack) {
         super(pClasse, pName, pLife, pAttack);
-        this.spell = new Eclairs();
+        this.sort = new Sort();
     }
     public Magicien(String pClasse, String pName) {
         super(pClasse, pName);
+    }
+
+    @Override
+    public void setSort(Sort sort) {
+        this.sort = sort;
     }
 
 
@@ -46,7 +53,7 @@ public class Magicien extends Personnage{
 //
     // to String
     public String toString() {
-        return super.toString() + "\n=>" + this.spell;
+        return super.toString() + " " + this.sort;
     }
 
 }

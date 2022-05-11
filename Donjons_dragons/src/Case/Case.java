@@ -8,17 +8,14 @@ public abstract class Case {
     //Attributs
 
     //Constructeur
-//    public Case(){
-//    }
-//    //methode
+
+
+    public Case() {
+    }
+
     public void interaction(Personnage personnage){
-        if(personnage instanceof Magicien){
-            System.out.println("Magicien");
-        }
-        else if (personnage instanceof Guerrier) {
-            System.out.println("guerrier");
-        }
-        ;
+
+        System.out.println("FONCTION INTERACTIION");
     }
 
     // toString
