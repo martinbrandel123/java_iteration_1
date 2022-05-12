@@ -8,7 +8,6 @@ public abstract class Personnage {
     private String name;
     private int life;
     private int attack;
-
     private Weapon weapon;
     private Sort sort;
 
@@ -16,22 +15,16 @@ public abstract class Personnage {
         this.classe = pClasse;
         this.name = pName;
         this.life = pLife;
-        this.attack = pAttack;
-    }
-    public  Personnage(String pClasse,String pName){
-        this.classe = pClasse;
-        this.name = pName;
-        this.life = 5;
-        this.attack = 5;
-        this.weapon = new Weapon();
-        this.sort = new Sort();
+        this.attack =  pAttack;
+       // this.attack = pAttack;
     }
 
-    // getter : setter
-    public String getClasse(){return this.classe;}
-    public String getName(){return this.name;}
-    public int getLife(){return this.life;}
-    public int getAttack(){return this.attack;}
+    // getter / setter
+    public int getPersonnageAttack() {
+        return this.attack;
+    }
+
+
 
 
     public void setWeapon(Weapon weapon) {
@@ -40,11 +33,19 @@ public abstract class Personnage {
     public void setSort(Sort sort){
         this.sort = sort;
     };
-
     public void setLife(int life) {
-        this.life = life;
+        this.life += life;
+        if(this.life > 20){
+            this.life = 20;
+        }
+    }
+    public void setAttack(int weaponAttack) {
+        this.attack += weaponAttack;
     }
 
-    public String toString() {return this.classe + " : " + this.name + "\n";
+    public String toString() {
+        return "***** Votre Personnage *****"+ "\n"
+                +"=> Force d'attaque : " + this.attack + "\n"
+            +"=> Vie : " + this.life + "/15" + "\n";
     }
 }

@@ -1,5 +1,7 @@
 package Menu;
 import java.util.Scanner;
+
+import Case.Case;
 import Hero.Guerrier;
 import Hero.Magicien;
 import Hero.Personnage;
@@ -75,7 +77,7 @@ public class Menu {
         return menuChoice;
     }
     public Boolean askForEnter() {
-        displayParagraph("Appuyer sur Entrer pour jettez les dés");
+        displayH1("Appuyer sur Entrer pour jettez les dés");
         if(this.input.hasNextLine()){
             this.input.nextLine();
             this.input.hasNextLine();
@@ -92,6 +94,9 @@ public class Menu {
     }
     public void displayPosition(int position){
         System.out.println("votre position => " + position);
+    }
+    public void displayObj(Case obj){
+        System.out.println("vous avez trouvez "+ obj);
     }
     public void displayH1(String text){
         System.out.println("-------------------");

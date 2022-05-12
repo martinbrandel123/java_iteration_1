@@ -1,8 +1,7 @@
 package Case.Sort;
-import Case.Equipement;
+import Case.Case;
 
-
-public class Sort extends Equipement {
+public class Sort extends Case {
     // Attributs
     private String name;
     private int attack;
@@ -13,7 +12,7 @@ public class Sort extends Equipement {
         this.attack = pAttack;
     }
     public Sort () {
-        this.name = "ECLAIRS AGROU AGROU";
+        this.name = "AGROU AGROU";
         this.attack = 1;
     }
     @Override

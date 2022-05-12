@@ -8,20 +8,20 @@ public abstract class Case {
     //Attributs
 
     //Constructeur
-
-
     public Case() {
     }
 
-    public void interaction(Personnage personnage){
 
-        System.out.println("FONCTION INTERACTIION");
+    // getter / setter
+    public int getHealt() {
+        return 0;
     }
 
     // toString
-    public String toString() {
-        return "CASE";
-    }
+    //public String toString() {
+    //    return "CASE";
+    //}
+
 
 
 }

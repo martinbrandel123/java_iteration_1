@@ -1,11 +1,13 @@
 package Case.Potion;
 
-import Case.Case;
+public class Potionstandards extends Potion {
 
-public class Potionstandards extends Case {
+    public Potionstandards(){
+        super("Potionstandar", 4);
+    }
 
     @Override
     public String toString() {
-        return "UNE POTION STANDARD ! TU AS SOIF ?";
+        return "UNE POTION STANDARD ! TU GAGNE 5 DE VIE !";
     }
 }

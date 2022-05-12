@@ -1,5 +1,6 @@
 package Game;
 import Case.Case;
+import Case.Potion.Potion;
 import Case.Weapon.Weapon;
 import Case.Sort.Sort;
 import Hero.Personnage;
@@ -20,16 +21,13 @@ import Case.Weapon.Epees;
 import Case.Sort.Eclairs;
 import Case.Sort.Bouledefeus;
 
-
-
 import Case.Potion.Potionstandards;
 import Case.Potion.Potionmagique;
-import org.w3c.dom.ls.LSOutput;
-
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
-import java.util.WeakHashMap;
+
 
 public class Game {
     private Menu menu;
@@ -77,14 +75,17 @@ public class Game {
     }
 
     public void createGamePlateau(){
+        GamePlateau.add(potionStandar);
         GamePlateau.add(massue);
-        GamePlateau.add(epee);
         GamePlateau.add(potionMagique);
+        GamePlateau.add(potionStandar);
+        GamePlateau.add(potionMagique);
+        GamePlateau.add(epee);
         GamePlateau.add(eclair);
+        GamePlateau.add(potionMagique);
         GamePlateau.add(bouleDeFeu);
         GamePlateau.add(potionStandar);
         GamePlateau.add(massue);
-
     }
 
     public void restartGame(){
@@ -125,7 +126,7 @@ public class Game {
             this.personnage = new Guerrier(classe, pseudo);
             this.menu.displayPersonnageInfo(personnage);
         }else if (classe.equalsIgnoreCase("Magicien")){
-            this.personnage = new Magicien(classe, pseudo, 10, 10);
+            this.personnage = new Magicien(classe, pseudo);
             this.menu.displayPersonnageInfo(personnage);
         }
     }
@@ -159,20 +160,15 @@ public class Game {
             Boolean isEnter = menu.askForEnter();
             if(isEnter){
                 dice = (int) Math.ceil(Math.random() * 1);
+                Case currentCaseObj =this.GamePlateau.get(position);
                 menu.displayPosition(this.position);
+                menu.displayObj(currentCaseObj);
+                updatePersonnageStats(currentCaseObj);
 
-                if(this.GamePlateau.get(position) instanceof Weapon && personnage instanceof Guerrier){
-                    this.personnage.setWeapon((Weapon) this.GamePlateau.get(position));
-                }else if (this.GamePlateau.get(position) instanceof Sort && personnage instanceof Magicien){
-                    this.personnage.setSort((Sort) this.GamePlateau.get(position));
-                }else if(this.GamePlateau.get(position) instanceof Potionmagique){
-                    //this.personnage.getLife();
-                    this.personnage.setLife(20);
-                    //.personnage.getLife();
-                }
-                //System.out.println("----------------");
+                System.out.println("----------------");
                 System.out.println(this.personnage);
-               // System.out.println("----------------");
+                System.out.println("----------------");
+
                 this.position += dice;
             }
         }
@@ -180,14 +176,19 @@ public class Game {
             menu.displayEndGame();
         }
     }
+    public void updatePersonnageStats(Case currentCaseObj){
+        if(currentCaseObj instanceof Weapon && personnage instanceof Guerrier){
+            this.personnage.setWeapon((Weapon) currentCaseObj);
+            this.personnage.setAttack(((Weapon) currentCaseObj).getAttack());
+        }else if (currentCaseObj instanceof Sort && personnage instanceof Magicien){
+            this.personnage.setSort((Sort) currentCaseObj);
+//            this.personnage.setAttack(((Sort) currentCaseObj).getAttack());
+        }else if(this.GamePlateau.get(position) instanceof Potion){
+            this.personnage.setLife(currentCaseObj.getHealt());
+        }
+    }
     public boolean isGameInProcesse(){
         boolean res = this.position < nbCase;
         return res;
-    }
-
-    public void check(){
-        System.out.println("22222222222222222222");
-        epee.interaction(personnage);
-        System.out.println("22222222222222222222");
     }
 }
