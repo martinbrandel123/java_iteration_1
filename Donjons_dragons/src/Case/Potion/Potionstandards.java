@@ -8,6 +8,6 @@ public class Potionstandards extends Potion {
 
     @Override
     public String toString() {
-        return "UNE POTION STANDARD ! TU GAGNE 5 DE VIE !";
+        return "UNE POTION STANDARD ! TU GAGNE 4 DE VIE !";
     }
 }

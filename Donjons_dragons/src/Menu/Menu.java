@@ -1,4 +1,5 @@
 package Menu;
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 import Case.Case;
@@ -71,10 +72,15 @@ public class Menu {
         System.out.println("1) COMMENCER LA PARTIE !");
         System.out.println("2) Afficher les caractèristiques du Héro");
         System.out.println("3) Modifier les caractèristiques du Héro");
-
-        int menuChoice = this.input.nextInt();
-        this.input.nextLine();
-        return menuChoice;
+        int menuChoice = 0;
+        try{
+            menuChoice = this.input.nextInt();
+            this.input.nextLine();
+            return menuChoice;
+        }catch (InputMismatchException e){
+            System.out.println("Chiffre seulement");
+        }
+    return menuChoice;
     }
     public Boolean askForEnter() {
         displayH1("Appuyer sur Entrer pour jettez les dés");
@@ -95,9 +101,9 @@ public class Menu {
     public void displayPosition(int position){
         System.out.println("votre position => " + position);
     }
-    public void displayObj(Case obj){
-        System.out.println("vous avez trouvez "+ obj);
-    }
+//    public void displayObj(Case obj){
+//        System.out.println("vous avez trouvez "+ obj);
+//    }
     public void displayH1(String text){
         System.out.println("-------------------");
         System.out.println(text);

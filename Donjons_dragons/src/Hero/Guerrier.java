@@ -8,7 +8,7 @@ public class Guerrier extends Personnage{
     //Constructeur
     public Guerrier(String pClasse, String pName) {
         super(pClasse, pName,15, 10);
-        this.weapon = new Weapon();
+       this.weapon = new Weapon();
     }
     // Accesseurs / Mutateurs
     @Override
