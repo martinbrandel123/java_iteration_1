@@ -12,10 +12,10 @@ public class Magicien extends Personnage{
         this.sort = new Sort();
     }
     // Accesseurs / Mutateurs
-    @Override
-    public void setSort(Sort sort) {
-        this.sort = sort;
-    }
+//    @Override
+//    public void setSort(Sort sort) {
+//        this.sort = sort;
+//    }
     // to String
     public String toString() {
         return super.toString() + " " + this.sort;

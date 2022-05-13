@@ -8,17 +8,4 @@ public class Massues extends Weapon {
     public Massues() {
         super("Massue de merde", 4);
     }
-
-
-    //public int getAttack(){
-    //    return this.attack;
-    //}
-
-
-
-
-//    @Override
-//    public String toString(){
-//        return "MASUSUSUSUSUS" ;
-//    }
 }

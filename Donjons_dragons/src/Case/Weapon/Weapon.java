@@ -1,32 +1,13 @@
 package Case.Weapon;
-import Case.Case;
+import Case.Items;
 
-public class Weapon extends Case {
-    private String name;
-    private int attack;
+public class Weapon extends Items {
 
     // Constructeur
     public Weapon(String pName, int pAttack){
-        this.name = pName;
-        this.attack = pAttack;
+        super(pName, pAttack);
     }
     public Weapon() {
-        this.name = "ARME DE BASE";
-        this.attack = 1;
-    }
-
-
-    // getter / setter
-    public int getAttack(){
-        return this.attack;
-    }
-
-
-    @Override
-    public String toString() {
-        return "=> Arme {" +
-                "Nom='" + this.name + '\'' +
-                " | Attaque='" + this.attack + '\'' +
-                '}';
+        super("ARME DE BASE", 1);
     }
 }

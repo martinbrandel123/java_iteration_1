@@ -10,6 +10,7 @@ import Case.Potion.Potionstandards;
 import Case.Sort.Bouledefeus;
 import Case.Sort.Eclairs;
 import Case.Weapon.Epees;
+import Case.Weapon.Massues;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -32,12 +33,12 @@ public class Board {
     public void createGameBoard(){
         CaseString.addAll(Arrays.asList(
                 new Dragons(), new Sorciers(), new Gobelins(),
-                new Eclairs(), new Epees(),
+                new Massues(), new Epees(),
                 new Eclairs(), new Bouledefeus(),
                 new Potionstandards(), new Potionmagique(),
                 new Emptycase()
         ));
-        numberOfInstanceToCreate.addAll(Arrays.asList(4, 10, 10, 5, 4, 5, 2, 6, 2, 15));
+        numberOfInstanceToCreate.addAll(Arrays.asList(0, 10, 10, 5, 4, 5, 2, 6, 2, 15));
         GamePlateau.add(new Emptycase());
         while (numberOfInstanceToCreate.size() > 0) {
               dice = (int) Math.floor(Math.random() * numberOfInstanceToCreate.size());

@@ -1,26 +1,13 @@
 package Case.Sort;
-import Case.Case;
+import Case.Items;
 
-public class Sort extends Case {
+public class Sort extends Items {
     // Attributs
-    private String name;
-    private int attack;
-
     // Constructeur
     public Sort (String pName, int pAttack) {
-        this.name = pName;
-        this.attack = pAttack;
+        super(pName, pAttack);
     }
     public Sort () {
-        this.name = "AGROU AGROU";
-        this.attack = 1;
+        super("AGROU AGROU", 1);
     }
-    @Override
-    public String toString() {
-        return "Sort {" +
-                "Nom='" + this.name + '\'' +
-                " | Attaque='" + this.attack + '\'' +
-                '}';
-    }
-
 }
