@@ -6,7 +6,7 @@ public class Guerrier extends Personnage{
 
     //Constructeur
     public Guerrier(String pClasse, String pName) {
-        super(pClasse, pName,15, 10);
+        super(pClasse, pName,15, 8);
     }
     // Accesseurs / Mutateurs
 

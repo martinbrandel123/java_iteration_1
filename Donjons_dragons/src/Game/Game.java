@@ -1,8 +1,10 @@
 package Game;
 import Board.Board;
 import Case.Case;
+import Case.Ennemi.Dragons;
 import Case.Ennemi.Ennemi;
 import Case.Potion.Potion;
+import Case.Emptycase;
 
 import Case.Items;
 import Case.Sort.Sort;
@@ -23,6 +25,7 @@ public class Game {
     private Personnage personnage;
     private int nbCase ;
     private Board board;
+    private int dice;
 
 
 
@@ -31,6 +34,7 @@ public class Game {
         this.board = new Board();
         this.position = 1;
         this.nbCase = 64;
+        this.dice = (int) Math.ceil(Math.random() * 6);
     }
     public void startGame(){
         this.position = 0;
@@ -102,19 +106,17 @@ public class Game {
         }
     }
     public void playGame(){
-        int dice = 0;
         while(isGameInProcesse()){
             Boolean isEnter = menu.askForEnter();
             if(isEnter){
-                dice = (int) Math.ceil(Math.random() * 1);
                 Case currentCase = board.getBoard().get(position);
-                menu.displayPosition(this.position);
                 updatePersonnageStats(currentCase);
-                System.out.println(currentCase);
                 startFight(currentCase);
+                System.out.println("$$$$$$$$$$$$$$$$$");
+                System.out.println(currentCase);
+                menu.displayPosition(this.position);
                 System.out.println(this.personnage);
                 System.out.println("$$$$$$$$$$$$$$$$$");
-
                 this.position += dice;
             }
         }
@@ -124,22 +126,19 @@ public class Game {
     }
 
     public void startFight(Case currentCase){
-
         if(currentCase instanceof Ennemi){
-          //  System.out.println((Ennemi) board.getBoard().get(position));
-            //int isFight = menu.askForFight();
-            //System.out.println(isFight);
-            //if(isFight == 1 ){
-
-            //}
-  //             this.board.getBoard().get(position);
- //               Boolean isAlive = ((Ennemi) currentCase).removeLifeFromFight(personnage.getItem().getItemAttack());
-  //              this.board.getBoard().get(position);
-  //              if(!isAlive){
-  //                  this.board.getBoard().set(position, null);
-  //                  this.board.getBoard().get(position);
-   //             };
-
+            int isFight = menu.askForFight();
+            if(isFight == 1 ){
+                ((Ennemi) currentCase).removeLifeFromFight(personnage.getAttack()); /// USAGE D'INTERFACE
+                Boolean isEnnemiAlive = ((Ennemi) currentCase).getLife() > 0;
+                if (isEnnemiAlive){
+                    personnage.removeLifeFromFight(((Ennemi) currentCase).getAttack()); /// USAGE D'INTERFACE
+                }else {
+                    board.getBoard().set(position, new Emptycase());
+                }
+            }else if (isFight == 2){
+                setPosition(-dice);
+            }
         }
     }
     public void updatePersonnageStats(Case currentCase){
@@ -158,4 +157,13 @@ public class Game {
         boolean res = this.position < nbCase;
         return res;
     }
+
+    // GETTER / SETTER
+
+     public void setPosition(int dice){
+        this.position += dice;
+        if(this.position <= 0){
+            this.position = 0;
+        }
+     }
 }

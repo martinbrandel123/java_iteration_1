@@ -12,15 +12,16 @@ import java.util.List;
 import Hero.Personnage;
 import Hero.Guerrier;
 import Hero.Magicien;
+import java.sql.*;
 
 public class Main {
     public static void main(String[] arg){
-    //    Game playGame = new Game();
-    //    playGame.startGame();
-    //    playGame.restartGame();
-        Board board = new Board();
-        board.createGameBoard();
-        System.out.println(board.getBoard().get(0));
+        Game playGame = new Game();
+        playGame.startGame();
+        playGame.restartGame();
+        //Board board = new Board();
+        //board.createGameBoard();
+       //System.out.println(board.getBoard());
     }
 }
 

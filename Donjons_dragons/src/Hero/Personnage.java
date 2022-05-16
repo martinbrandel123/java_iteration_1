@@ -25,6 +25,9 @@ public abstract class Personnage implements Fights {
         return this.item;
     }
     public int getAttack(){return this.attack;}
+    public int getLife(){
+        return this.life;
+    }
     public void setItem(Items pItem){
         Items previousItem = this.item;  // stock l'item actuel avant de le récuperer
         this.item = pItem; // Recuperer l'item sur la case actuel
@@ -43,10 +46,10 @@ public abstract class Personnage implements Fights {
         this.attack = this.basicAttack + itemAttack;
     }
 
-    //public int getAttack(){
-    //return this.attack;
-    //}
 
+    public void removeLifeFromFight(int attack){
+        this.life = this.life - attack;
+    };
     @Override
     public String toString() {
         return name+" {" +
