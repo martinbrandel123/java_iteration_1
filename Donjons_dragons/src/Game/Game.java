@@ -1,6 +1,7 @@
 package Game;
 import Board.Board;
 import Case.Case;
+import Case.Ennemi.Ennemi;
 import Case.Potion.Potion;
 
 import Case.Items;
@@ -37,9 +38,6 @@ public class Game {
         createTheHero();
         createMainMenu();
     }
-
-
-
     public void restartGame(){
         while(true){
             String playAgainChoice = menu.askIfPlayAgain();
@@ -51,7 +49,6 @@ public class Game {
             playAgainChoice = "";
           }
         }
-
     public void initializeTheGame() {
         this.board.createGameBoard();
         this.classe = menu.chooseTheHero();
@@ -65,7 +62,7 @@ public class Game {
                 playGame();
                 break;
             case 2:
-                System.out.println(personnage.toString());
+                System.out.println(personnage);
                 createMainMenu();
                 break;
             case 3:
@@ -82,8 +79,6 @@ public class Game {
         }
         this.menu.displayPersonnageInfo(personnage);
     }
-
-
     public void changeInfos(){
         Boolean haveToChangeInfos = menu.isInfoToChange();
         System.out.println(haveToChangeInfos);
@@ -112,12 +107,11 @@ public class Game {
             Boolean isEnter = menu.askForEnter();
             if(isEnter){
                 dice = (int) Math.ceil(Math.random() * 1);
-                Case currentCaseObj = board.getBoard().get(position);
+                Case currentCase = board.getBoard().get(position);
                 menu.displayPosition(this.position);
-
-                updatePersonnageStats(currentCaseObj);
-                System.out.println("$$$$$$$$$$$$$$$$$");
-                System.out.println(currentCaseObj);
+                updatePersonnageStats(currentCase);
+                System.out.println(currentCase);
+                startFight(currentCase);
                 System.out.println(this.personnage);
                 System.out.println("$$$$$$$$$$$$$$$$$");
 
@@ -128,25 +122,36 @@ public class Game {
             menu.displayEndGame();
         }
     }
-    public void updatePersonnageStats(Case currentCaseObj){
-        if(currentCaseObj instanceof Weapon && personnage instanceof Guerrier){
-            this.personnage.setItem((Items) currentCaseObj);
-         //   this.personnage.setAttack();
-           // this.personnage.setWeapon((Weapon) currentCaseObj);
-            //this.personnage.setAttack(((Weapon) currentCaseObj).getAttack());
+
+    public void startFight(Case currentCase){
+
+        if(currentCase instanceof Ennemi){
+          //  System.out.println((Ennemi) board.getBoard().get(position));
+            //int isFight = menu.askForFight();
+            //System.out.println(isFight);
+            //if(isFight == 1 ){
+
+            //}
+  //             this.board.getBoard().get(position);
+ //               Boolean isAlive = ((Ennemi) currentCase).removeLifeFromFight(personnage.getItem().getItemAttack());
+  //              this.board.getBoard().get(position);
+  //              if(!isAlive){
+  //                  this.board.getBoard().set(position, null);
+  //                  this.board.getBoard().get(position);
+   //             };
+
         }
-
-//        Personnage personnage = new Guerrier("michel", "pseudo");
-//        Items items = new Epees();
-//        personnage.setItem(items);
-//        System.out.println(personnage.getItem());
-
-
-        else if (currentCaseObj instanceof Sort && personnage instanceof Magicien){
+    }
+    public void updatePersonnageStats(Case currentCase){
+        if(currentCase instanceof Weapon && personnage instanceof Guerrier){
+            this.personnage.setItem((Items) currentCase);
+            this.personnage.setAttack(((Items) currentCase).getItemAttack());
+        }
+        else if (currentCase instanceof Sort && personnage instanceof Magicien){
            // this.personnage.setSort((Sort) currentCaseObj);
            // this.personnage.setAttack();
-        }else if(currentCaseObj instanceof Potion){
-            this.personnage.setLife(currentCaseObj.getHealt());
+        }else if(currentCase instanceof Potion){
+           this.personnage.setLife(((Potion) currentCase).getHealt());
         }
     }
     public boolean isGameInProcesse(){

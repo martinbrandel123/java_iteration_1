@@ -1,3 +1,4 @@
+import Case.Case;
 import Case.Items;
 import Case.Weapon.Epees;
 import Case.Weapon.Massues;
@@ -14,19 +15,12 @@ import Hero.Magicien;
 
 public class Main {
     public static void main(String[] arg){
-//        Game playGame = new Game();
-//         playGame.startGame();
-//       playGame.restartGame();
-        Personnage personnage = new Guerrier("michel", "pseudo");
-        System.out.println(personnage);
-        personnage.setItem(new Epees());
-        personnage.setAttack(personnage.getItem().getItemAttack());
-        System.out.println(personnage);
-        personnage.setItem(new Massues());
-        personnage.setAttack(personnage.getItem().getItemAttack());
-        System.out.println(personnage);
-
-
+    //    Game playGame = new Game();
+    //    playGame.startGame();
+    //    playGame.restartGame();
+        Board board = new Board();
+        board.createGameBoard();
+        System.out.println(board.getBoard().get(0));
     }
 }
 

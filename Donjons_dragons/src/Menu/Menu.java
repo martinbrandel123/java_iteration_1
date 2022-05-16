@@ -132,7 +132,14 @@ public class Menu {
     }
 
 
-
+    public int askForFight() {
+        System.out.println("1) Lancer le combat");
+        System.out.println("2) Fuir le combat");
+        int isFight = 0;
+        isFight = this.input.nextInt();
+        this.input.nextLine();
+        return isFight;
+    }
 }
 
 
