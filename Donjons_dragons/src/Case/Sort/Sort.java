@@ -2,12 +2,11 @@ package Case.Sort;
 import Case.Items;
 
 public class Sort extends Items {
-    // Attributs
     // Constructeur
-    public Sort (String pName, int pAttack) {
+    public Sort(String pName, int pAttack){
         super(pName, pAttack);
     }
-    public Sort () {
-        super("AGROU AGROU", 1);
+    public Sort() {
+        super("SORT DE BASE", 1);
     }
 }

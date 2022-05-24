@@ -1,5 +1,7 @@
 package Fights;
 
 public interface Fights {
-    default void removeLifeFromFight(int attack) {};
+    void removeLifeFromFight(int attack);
+    int getLife();
+    int getAttack();
 }

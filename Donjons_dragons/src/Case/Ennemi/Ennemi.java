@@ -1,12 +1,13 @@
 package Case.Ennemi;
 
 import Case.Case;
+import Fights.Fights;
 
-public class Ennemi extends Case {
-    public String name;
-    public int life;
-    public int basicLife;
-    public int attack;
+public abstract class Ennemi extends Case implements Fights {
+    private String name;
+    private int life;
+    private int basicLife;
+    private int attack;
 
     public Ennemi (String pName, int pLife, int pAttack){
         this.name = pName;
@@ -24,6 +25,7 @@ public class Ennemi extends Case {
     public int getLife(){
         return this.life;
     }
+
     public void removeLifeFromFight(int attack){
         this.life = this.life - attack;
     };

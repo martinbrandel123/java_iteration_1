@@ -2,29 +2,29 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ee918631-0f65-4cff-83fb-2a1a30df8119" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Donjons_dragons/src/Case/Potion/Potion.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/java_test1/src/Vehicule.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/java_test1/src/main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Donjons_dragons/out/production/Donjons_dragons/Case/Case.class" beforeDir="false" afterPath="$PROJECT_DIR$/Donjons_dragons/out/production/Donjons_dragons/Case/Case.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Donjons_dragons/out/production/Donjons_dragons/Case/Equipement.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Donjons_dragons/out/production/Donjons_dragons/Case/Potion/Potionmagique.class" beforeDir="false" afterPath="$PROJECT_DIR$/Donjons_dragons/out/production/Donjons_dragons/Case/Potion/Potionmagique.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Donjons_dragons/out/production/Donjons_dragons/Case/Potion/Potionstandards.class" beforeDir="false" afterPath="$PROJECT_DIR$/Donjons_dragons/out/production/Donjons_dragons/Case/Potion/Potionstandards.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Donjons_dragons/.idea/dataSources.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Donjons_dragons/.idea/sqldialects.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Donjons_dragons/src/BDD/Display.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Donjons_dragons/src/BDD/Insert.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Donjons_dragons/src/BDD/MyJDBC.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Donjons_dragons/src/Error/ErreurWithChoice.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Donjons_dragons/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Donjons_dragons/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Donjons_dragons/Donjons_dragons.iml" beforeDir="false" afterPath="$PROJECT_DIR$/Donjons_dragons/Donjons_dragons.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Donjons_dragons/out/production/Donjons_dragons/Case/Ennemi/Ennemi.class" beforeDir="false" afterPath="$PROJECT_DIR$/Donjons_dragons/out/production/Donjons_dragons/Case/Ennemi/Ennemi.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Donjons_dragons/out/production/Donjons_dragons/Case/Sort/Bouledefeus.class" beforeDir="false" afterPath="$PROJECT_DIR$/Donjons_dragons/out/production/Donjons_dragons/Case/Sort/Bouledefeus.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Donjons_dragons/out/production/Donjons_dragons/Case/Sort/Sort.class" beforeDir="false" afterPath="$PROJECT_DIR$/Donjons_dragons/out/production/Donjons_dragons/Case/Sort/Sort.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Donjons_dragons/out/production/Donjons_dragons/Case/Weapon/Weapon.class" beforeDir="false" afterPath="$PROJECT_DIR$/Donjons_dragons/out/production/Donjons_dragons/Case/Weapon/Weapon.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Donjons_dragons/out/production/Donjons_dragons/Fights/Fights.class" beforeDir="false" afterPath="$PROJECT_DIR$/Donjons_dragons/out/production/Donjons_dragons/Fights/Fights.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Donjons_dragons/out/production/Donjons_dragons/Game/Game.class" beforeDir="false" afterPath="$PROJECT_DIR$/Donjons_dragons/out/production/Donjons_dragons/Game/Game.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Donjons_dragons/out/production/Donjons_dragons/Hero/Guerrier.class" beforeDir="false" afterPath="$PROJECT_DIR$/Donjons_dragons/out/production/Donjons_dragons/Hero/Guerrier.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Donjons_dragons/out/production/Donjons_dragons/Hero/Magicien.class" beforeDir="false" afterPath="$PROJECT_DIR$/Donjons_dragons/out/production/Donjons_dragons/Hero/Magicien.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Donjons_dragons/out/production/Donjons_dragons/Hero/Personnage.class" beforeDir="false" afterPath="$PROJECT_DIR$/Donjons_dragons/out/production/Donjons_dragons/Hero/Personnage.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Donjons_dragons/out/production/Donjons_dragons/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/Donjons_dragons/out/production/Donjons_dragons/Main.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Donjons_dragons/out/production/Donjons_dragons/Menu/Menu.class" beforeDir="false" afterPath="$PROJECT_DIR$/Donjons_dragons/out/production/Donjons_dragons/Menu/Menu.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Donjons_dragons/src/Case/Case.java" beforeDir="false" afterPath="$PROJECT_DIR$/Donjons_dragons/src/Case/Case.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Donjons_dragons/src/Case/Equipement.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Donjons_dragons/src/Case/Potion/Potionmagique.java" beforeDir="false" afterPath="$PROJECT_DIR$/Donjons_dragons/src/Case/Potion/Potionmagique.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Donjons_dragons/src/Case/Potion/Potionstandards.java" beforeDir="false" afterPath="$PROJECT_DIR$/Donjons_dragons/src/Case/Potion/Potionstandards.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Donjons_dragons/src/Case/Ennemi/Ennemi.java" beforeDir="false" afterPath="$PROJECT_DIR$/Donjons_dragons/src/Case/Ennemi/Ennemi.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Donjons_dragons/src/Case/Sort/Bouledefeus.java" beforeDir="false" afterPath="$PROJECT_DIR$/Donjons_dragons/src/Case/Sort/Bouledefeus.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Donjons_dragons/src/Case/Sort/Eclairs.java" beforeDir="false" afterPath="$PROJECT_DIR$/Donjons_dragons/src/Case/Sort/Eclairs.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Donjons_dragons/src/Case/Sort/Sort.java" beforeDir="false" afterPath="$PROJECT_DIR$/Donjons_dragons/src/Case/Sort/Sort.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Donjons_dragons/src/Case/Weapon/Weapon.java" beforeDir="false" afterPath="$PROJECT_DIR$/Donjons_dragons/src/Case/Weapon/Weapon.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Donjons_dragons/src/Fights/Fights.java" beforeDir="false" afterPath="$PROJECT_DIR$/Donjons_dragons/src/Fights/Fights.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Donjons_dragons/src/Game/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/Donjons_dragons/src/Game/Game.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Donjons_dragons/src/Hero/Guerrier.java" beforeDir="false" afterPath="$PROJECT_DIR$/Donjons_dragons/src/Hero/Guerrier.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Donjons_dragons/src/Hero/Magicien.java" beforeDir="false" afterPath="$PROJECT_DIR$/Donjons_dragons/src/Hero/Magicien.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Donjons_dragons/src/Hero/Personnage.java" beforeDir="false" afterPath="$PROJECT_DIR$/Donjons_dragons/src/Hero/Personnage.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Donjons_dragons/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/Donjons_dragons/src/Main.java" afterDir="false" />
@@ -46,14 +46,14 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "C:/Users/martin.brandel/Java_martin"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/martin.brandel/Java_martin&quot;
   }
-}]]></component>
+}</component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -63,6 +63,7 @@
       <option name="presentableId" value="Default" />
       <updated>1652277744723</updated>
       <workItem from="1652277745954" duration="65000" />
+      <workItem from="1653308195869" duration="64000" />
     </task>
     <servers />
   </component>

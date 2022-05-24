@@ -1,11 +1,11 @@
 package Menu;
 import java.util.InputMismatchException;
 import java.util.Scanner;
-
 import Case.Case;
 import Hero.Guerrier;
 import Hero.Magicien;
 import Hero.Personnage;
+import Error.ErreurWithChoice;
 import jdk.swing.interop.SwingInterOpUtils;
 
 
@@ -67,18 +67,16 @@ public class Menu {
         displayH1("Félicitation Votre Hero à été crée !");
         System.out.println("=> " + personnage.toString());
     }
-    public int askForMenuChoice(){
+    public int askForMenuChoice() throws ErreurWithChoice {
         displayH2("MENU");
         System.out.println("1) COMMENCER LA PARTIE !");
         System.out.println("2) Afficher les caractèristiques du Héro");
         System.out.println("3) Modifier les caractèristiques du Héro");
-        int menuChoice = 0;
-        try{
-            menuChoice = this.input.nextInt();
-            this.input.nextLine();
-            return menuChoice;
-        }catch (InputMismatchException e){
-            System.out.println("Chiffre seulement");
+        int menuChoice = this.input.nextInt();
+        this.input.nextLine();
+
+        if(!(menuChoice == 1 || menuChoice == 2 || menuChoice == 3)){
+            throw new ErreurWithChoice();
         }
     return menuChoice;
     }
@@ -116,12 +114,7 @@ public class Menu {
         System.out.println("=> " + text);
     }
     public void displayEndGame(){
-        System.out.println(
-                "██████╗ ██╗   ██╗███╗   ██╗ ██████╗ ███████╗ ██████╗ ███╗   ██╗███████╗       ██╗       ██████╗ ██████╗  █████╗  ██████╗  ██████╗ ███╗   ██╗███████╗\n" +
-                "██╔══██╗██║   ██║████╗  ██║██╔════╝ ██╔════╝██╔═══██╗████╗  ██║██╔════╝       ██║       ██╔══██╗██╔══██╗██╔══██╗██╔════╝ ██╔═══██╗████╗  ██║██╔════╝\n" + "██║  ██║██║   ██║██╔██╗ ██║██║  ███╗█████╗  ██║   ██║██╔██╗ ██║███████╗    ████████╗    ██║  ██║██████╔╝███████║██║  ███╗██║   ██║██╔██╗ ██║███████╗\n" +
-                "██║  ██║██║   ██║██║╚██╗██║██║   ██║██╔══╝  ██║   ██║██║╚██╗██║╚════██║    ██╔═██╔═╝    ██║  ██║██╔══██╗██╔══██║██║   ██║██║   ██║██║╚██╗██║╚════██║\n" +
-                "██████╔╝╚██████╔╝██║ ╚████║╚██████╔╝███████╗╚██████╔╝██║ ╚████║███████║    ██████║      ██████╔╝██║  ██║██║  ██║╚██████╔╝╚██████╔╝██║ ╚████║███████║\n" +
-                "╚═════╝  ╚═════╝ ╚═╝  ╚═══╝ ╚═════╝ ╚══════╝ ╚═════╝ ╚═╝  ╚═══╝╚══════╝    ╚═════╝      ╚═════╝ ╚═╝  ╚═╝╚═╝  ╚═╝ ╚═════╝  ╚═════╝ ╚═╝  ╚═══╝╚══════╝");
+        System.out.println("Vous avez gagner");
     }
     public void leaveGame(String inputValue){
         if(inputValue.equals("exit")){

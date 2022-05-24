@@ -1,21 +1,23 @@
 package Game;
+import BDD.Display;
+import BDD.Insert;
 import Board.Board;
 import Case.Case;
-import Case.Ennemi.Dragons;
 import Case.Ennemi.Ennemi;
 import Case.Potion.Potion;
 import Case.Emptycase;
 
 import Case.Items;
 import Case.Sort.Sort;
-import Case.Weapon.Epees;
 import Case.Weapon.Weapon;
+import Fights.Fights;
 import Hero.Personnage;
 import Menu.Menu;
 
 import Hero.Guerrier;
 import Hero.Magicien;
 
+import Error.ErreurWithChoice;
 
 public class Game {
     private Menu menu;
@@ -26,6 +28,8 @@ public class Game {
     private int nbCase ;
     private Board board;
     private int dice;
+    private Insert insert = new Insert();
+    private Display display = new Display();
 
 
 
@@ -59,7 +63,14 @@ public class Game {
         this.pseudo = menu.choosePseudo();
     }
     public void createMainMenu(){
-        int menuChoice = menu.askForMenuChoice();
+        int menuChoice = 0;
+
+        try{
+            menuChoice = menu.askForMenuChoice();
+        }catch (ErreurWithChoice e ){
+            System.out.println(e.getMessage());
+        }
+
 
         switch(menuChoice){
             case 1:
@@ -78,6 +89,12 @@ public class Game {
     public void createTheHero(){
         if(classe.equalsIgnoreCase("Guerrier")){
             this.personnage = new Guerrier(classe, pseudo);
+            try {
+                insert.insertHeroIntoBDD(classe, pseudo, personnage.getLife(), personnage.getAttack(), personnage.getItem().getName());
+                display.displayHeroTable();
+            }catch (Exception e){
+                System.err.println(e);
+            }
         }else if (classe.equalsIgnoreCase("Magicien")){
             this.personnage = new Magicien(classe, pseudo);
         }
@@ -126,13 +143,14 @@ public class Game {
     }
 
     public void startFight(Case currentCase){
-        if(currentCase instanceof Ennemi){
+        if(currentCase instanceof Fights){
+            Fights ennemy = (Fights) currentCase;
             int isFight = menu.askForFight();
-            if(isFight == 1 ){
-                ((Ennemi) currentCase).removeLifeFromFight(personnage.getAttack()); /// USAGE D'INTERFACE
-                Boolean isEnnemiAlive = ((Ennemi) currentCase).getLife() > 0;
+            if(isFight == 1){
+                ennemy.removeLifeFromFight(personnage.getAttack()); /// USAGE D'INTERFACE
+                Boolean isEnnemiAlive = ennemy.getLife() > 0;
                 if (isEnnemiAlive){
-                    personnage.removeLifeFromFight(((Ennemi) currentCase).getAttack()); /// USAGE D'INTERFACE
+                    personnage.removeLifeFromFight(ennemy.getAttack()); /// USAGE D'INTERFACE
                 }else {
                     board.getBoard().set(position, new Emptycase());
                 }
@@ -147,8 +165,8 @@ public class Game {
             this.personnage.setAttack(((Items) currentCase).getItemAttack());
         }
         else if (currentCase instanceof Sort && personnage instanceof Magicien){
-           // this.personnage.setSort((Sort) currentCaseObj);
-           // this.personnage.setAttack();
+            this.personnage.setItem((Items) currentCase);
+            this.personnage.setAttack(((Items) currentCase).getItemAttack());
         }else if(currentCase instanceof Potion){
            this.personnage.setLife(((Potion) currentCase).getHealt());
         }
